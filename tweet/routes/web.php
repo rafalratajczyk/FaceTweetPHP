@@ -22,7 +22,7 @@ Route::get('/alert', function () {
 
 Route::get('/signup', [
     'uses' => '\Tweet\Http\Controllers\AuthController@getSignUp',
-    'as' => 'auth.signup'
+    'as' => 'auth.signup',
 ]);
 
 Route::post('/signup', [
@@ -41,6 +41,11 @@ Route::post('/signin', [
 Route::get('/signout', [
     'uses' => '\Tweet\Http\Controllers\AuthController@getSignOut',
     'as' => 'auth.signout'
+]);
+
+Route::get('/search', [
+    'uses' => '\Tweet\Http\Controllers\SearchController@getResults',
+    'as' => 'search.results'
 ]);
 
 
