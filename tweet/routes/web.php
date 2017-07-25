@@ -38,4 +38,9 @@ Route::post('/signin', [
     'uses' => '\Tweet\Http\Controllers\AuthController@postSignIn'
 ]);
 
+Route::get('/signout', [
+    'uses' => '\Tweet\Http\Controllers\AuthController@getSignOut',
+    'as' => 'auth.signout'
+]);
+
 
