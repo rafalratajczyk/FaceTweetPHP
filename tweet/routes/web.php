@@ -29,3 +29,13 @@ Route::post('/signup', [
     'uses' => '\Tweet\Http\Controllers\AuthController@postSignUp'
 ]);
 
+Route::get('/signin', [
+    'uses' => '\Tweet\Http\Controllers\AuthController@getSignIn',
+    'as' => 'auth.signin'
+]);
+
+Route::post('/signin', [
+    'uses' => '\Tweet\Http\Controllers\AuthController@postSignIn'
+]);
+
+
