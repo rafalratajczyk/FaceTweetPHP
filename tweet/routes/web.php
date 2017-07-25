@@ -48,4 +48,7 @@ Route::get('/search', [
     'as' => 'search.results'
 ]);
 
-
+Route::get('/user/{username}', [
+    'uses' => '\Tweet\Http\Controllers\ProfileController@getProfile',
+    'as' => 'profile.index'
+]);
