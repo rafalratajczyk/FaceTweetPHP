@@ -19,3 +19,13 @@ Route::get('/', [
 Route::get('/alert', function () {
     return redirect()->route('welcome')->with('info', 'Signed up!');
 });
+
+Route::get('/signup', [
+    'uses' => '\Tweet\Http\Controllers\AuthController@getSignUp',
+    'as' => 'auth.signup'
+]);
+
+Route::post('/signup', [
+    'uses' => '\Tweet\Http\Controllers\AuthController@postSignUp'
+]);
+
