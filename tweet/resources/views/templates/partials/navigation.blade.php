@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">Tweete</a>
+            <a class="navbar-brand" href="{{ route('welcome') }}">Tweete</a>
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Dayle</a></li>
                 <li><a href="#">Update profile</a></li>
-                <li><a href="#">Sign up</a></li>
+                <li><a href="{{ route('auth.signup') }}">Sign up</a></li>
                 <li><a href="#">Sign in</a></li>
             </ul>
         </div>
