@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Tweet\User::class,
+            'model' => Tweet\Models\User::class,
         ],
 
         // 'users' => [
