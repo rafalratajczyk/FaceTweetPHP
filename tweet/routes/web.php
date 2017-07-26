@@ -62,3 +62,8 @@ Route::post('/profile/edit', [
     'uses' => '\Tweet\Http\Controllers\ProfileController@postEdit',
 ]);
 
+Route::get('/friends', [
+    'uses' => '\Tweet\Http\Controllers\FriendController@getIndex',
+    'as' => 'friends.index'
+]);
+
