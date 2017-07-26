@@ -52,3 +52,13 @@ Route::get('/user/{username}', [
     'uses' => '\Tweet\Http\Controllers\ProfileController@getProfile',
     'as' => 'profile.index'
 ]);
+
+Route::get('/profile/edit', [
+    'uses' => '\Tweet\Http\Controllers\ProfileController@getEdit',
+    'as' => 'profile.edit'
+]);
+
+Route::post('/profile/edit', [
+    'uses' => '\Tweet\Http\Controllers\ProfileController@postEdit',
+]);
+
