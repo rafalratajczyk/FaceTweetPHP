@@ -72,6 +72,10 @@ Route::get('/friends/add/{username}', [
     'as' => 'friends.add'
 ]);
 
+Route::get('/friends/accept/{username}', [
+    'uses' => '\Tweet\Http\Controllers\FriendController@getAccept',
+    'as' => 'friends.accept'
+]);
 
 
 
