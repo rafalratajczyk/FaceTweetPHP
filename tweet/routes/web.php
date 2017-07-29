@@ -67,3 +67,11 @@ Route::get('/friends', [
     'as' => 'friends.index'
 ]);
 
+Route::get('/friends/add/{username}', [
+    'uses' => '\Tweet\Http\Controllers\FriendController@getAdd',
+    'as' => 'friends.add'
+]);
+
+
+
+
