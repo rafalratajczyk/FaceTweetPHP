@@ -18,7 +18,7 @@
                 <p>You have no friends requests at all.</p>
             @else
                 @foreach($requests as $user)
-                    @include('user/partials/userblock')
+                    @include('user.partials.userblock')
                 @endforeach
             @endif
         </div>

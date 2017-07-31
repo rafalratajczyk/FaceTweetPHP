@@ -99,7 +99,7 @@ class User extends Model implements AuthenticatableContract
 
     public function hasFriendRequestReceived(User $user)
     {
-        return (bool)$this
+        return (bool) $this
             ->friendRequests()
             ->where('id', $user->id)
             ->count();
@@ -124,6 +124,6 @@ class User extends Model implements AuthenticatableContract
 
     public function isFriendsWith(User $user)
     {
-        return $this->friends()->where('id', $user->id)->count();
+        return (bool) $this->friends()->where('id', $user->id)->count();
     }
 }
