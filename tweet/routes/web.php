@@ -77,5 +77,10 @@ Route::get('/friends/accept/{username}', [
     'as' => 'friends.accept'
 ]);
 
+Route::post('/status', [
+    'uses' => '\Tweet\Http\Controllers\StatusController@postStatus',
+    'as' => 'status.post'
+]);
+
 
 
