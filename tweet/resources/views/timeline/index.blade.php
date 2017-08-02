@@ -24,11 +24,14 @@
             @else
                 @foreach($statuses as $status)
                     <div class="media">
-                        <a class="pull-left" href="{{ route('profile.index', ['username' => $status->user->username]) }}">
-                            <img class="media-object" alt="{{ $status->user->getNameOrUsername() }}" src="{{ $status->user->getAvatarUrl() }}">
+                        <a class="pull-left"
+                           href="{{ route('profile.index', ['username' => $status->user->username]) }}">
+                            <img class="media-object" alt="{{ $status->user->getNameOrUsername() }}"
+                                 src="{{ $status->user->getAvatarUrl() }}">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading"><a href="{{ route('profile.index', ['username' => $status->user->username]) }}">
+                            <h4 class="media-heading"><a
+                                        href="{{ route('profile.index', ['username' => $status->user->username]) }}">
                                     {{ $status->user->getNameOrUsername() }}</a></h4>
                             <p>{{ $status->body }}</p>
                             <ul class="list-inline">
@@ -50,12 +53,17 @@
                             {{--</ul>--}}
                             {{--</div>--}}
                             {{--</div>--}}
-                            <form role="form" action="#" method="post">
-                                <div class="form-group">
-                                    <textarea name="reply-1" class="form-control" rows="4"
+                            <form role="form" action="{{ route('status.reply', ['statusId' => $status->id]) }}"
+                                  method="post">
+                                <div class="form-group{{ $errors->has("reply-{$status->id}") ? ' has-error': '' }}">
+                                    <textarea name="reply-{{ $status->id }}" class="form-control" rows="4"
                                               placeholder="Reply to this status"></textarea>
+                                    @if($errors->has("reply-{$status->id}"))
+                                        <span class="help-block">{{ $errors->first("reply-{$status->id}") }}</span>
+                                    @endif
                                 </div>
                                 <input type="submit" value="Reply" class="btn btn-default btn-sm">
+                                <input type="hidden" name="_token" value="{{ Session::token() }}">
                             </form>
                         </div>
                     </div>
