@@ -16,4 +16,15 @@ class Status extends Model
     {
         return $this->belongsTo('Tweet\Models\User', 'user_id');
     }
+
+    public function scopeNotReply($query)
+    {
+        return $query->whereNull('parent_id');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany('Tweet\Models\Status', 'parent_id');
+    }
+
 }
