@@ -82,5 +82,8 @@ Route::post('/status', [
     'as' => 'status.post'
 ]);
 
-
+Route::post('/status/{statusId}/reply', [
+    'uses' => '\Tweet\Http\Controllers\StatusController@postReply',
+    'as' => 'status.reply'
+]);
 
