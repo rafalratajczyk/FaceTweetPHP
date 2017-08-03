@@ -15,8 +15,13 @@ class ProfileController extends Controller
         if (!$user) {
             abort(404);
         }
+
+        $statuses = $user->statuses()->notReply()->get();
+
         return view('profile.index')
-            ->with('user', $user);
+            ->with('user', $user)
+            ->with('statuses', $statuses)
+            ->with('authUserIsFriend', Auth::user()->isFriendsWith($user));
     }
 
     public function getEdit()
@@ -33,9 +38,9 @@ class ProfileController extends Controller
         ]);
 
         Auth::user()->update([
-           'first_name' => $request->input('first_name'),
-           'last_name' => $request->input('last_name'),
-           'location' => $request->input('location'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'location' => $request->input('location'),
         ]);
         return redirect()
             ->route('profile.edit')
