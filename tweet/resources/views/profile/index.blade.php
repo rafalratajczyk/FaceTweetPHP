@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                             @endforeach
-                            @if($authUserIsFriend || Auth::user()->id === $status->id)
+                            @if($authUserIsFriend || Auth::user()->id === $status->user->id)
                                 <form role="form" action="{{ route('status.reply', ['statusId' => $status->id]) }}"
                                       method="post">
                                     <div class="form-group{{ $errors->has("reply-{$status->id}") ? ' has-error': '' }}">
