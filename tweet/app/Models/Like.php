@@ -17,6 +17,4 @@ class Like extends Model
     {
         return $this->belongsTo('Tweet\Models\User', 'user_id');
     }
-
-
 }
