@@ -77,6 +77,11 @@ Route::get('/friends/accept/{username}', [
     'as' => 'friends.accept'
 ]);
 
+Route::post('/friendsdelete/{username}', [
+    'uses' => '\Tweet\Http\Controllers\FriendController@postDelete',
+    'as' => 'friends.delete'
+]);
+
 Route::post('/status', [
     'uses' => '\Tweet\Http\Controllers\StatusController@postStatus',
     'as' => 'status.post'
