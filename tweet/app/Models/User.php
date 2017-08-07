@@ -59,6 +59,11 @@ class User extends Model implements AuthenticatableContract
         return $this->hasMany('Tweet\Models\Status', 'user_id');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('Tweet\Models\Like', 'user_id');
+    }
+
     public function friendsOfMine()
     {
         return $this->belongsToMany('Tweet\Models\User', 'friends', 'user_id', 'friend_id');
@@ -104,7 +109,7 @@ class User extends Model implements AuthenticatableContract
 
     public function hasFriendRequestReceived(User $user)
     {
-        return (bool) $this
+        return (bool)$this
             ->friendRequests()
             ->where('id', $user->id)
             ->count();
@@ -129,6 +134,16 @@ class User extends Model implements AuthenticatableContract
 
     public function isFriendsWith(User $user)
     {
-        return (bool) $this->friends()->where('id', $user->id)->count();
+        return (bool)$this->friends()->where('id', $user->id)->count();
+    }
+
+    public function hasLikedStatus(Status $status)
+    {
+        return (bool)$status
+            ->likes
+            ->where('likeable_id', $status->id)
+            ->where('likeable_type', get_class($status))
+            ->where('user_id', $this->id)
+            ->count();
     }
 }
