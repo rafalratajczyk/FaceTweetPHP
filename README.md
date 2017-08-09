@@ -72,3 +72,27 @@ src="https://user-images.githubusercontent.com/27738202/29021284-478c9e0a-7b65-1
 
 What's inside?
 --------------
+
+[**1. laravel**][1] - link to documentation how to install laravel
+
+[**2. bootstrap**][2] 
+
+[**3. database**][3]
+
+[**4. migrations**][4]
+
+[**5. gravatar**][5]
+
+**6. md5**
+
+
+
+**Enyoj!!!**
+
+
+
+[1]:  https://laravel.com/docs/5.4
+[2]:  http://getbootstrap.com
+[3]:  https://laravel.com/docs/5.4/database
+[4]:  https://laravel.com/docs/5.4/migrations
+[5]:  https://en.gravatar.com/site/implement/images/
